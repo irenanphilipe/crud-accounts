@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres-app:
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./src/database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+  
+  backend-app:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres-app
+    environment:
+      NODE_ENV: production
+      PG_HOST: teste-postgres
+      PG_PORT: 5432
+      PG_USER: admin
+      PG_PASSWORD: admin
+      PG_DB: myaccounts
+
+

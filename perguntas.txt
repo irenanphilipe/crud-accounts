@@ -1,0 +1,24 @@
+1. A solução deve ser disponibilizada em Cloud ou On-premise?
+	
+	R: O ideal é que a solução seja disponibilizada em Cloud, os custos aumentam um pouco, mas a aplicação pode escalar 
+	facilmente em termos de implementação de novas funcionalidades e alta disponibilidade para o cliente.
+
+2. Considerando a participação de 4 pessoas técnicas para o desenvolvimento dessa solução, responda qual ferramenta acredita ser apropriada para o controle de tarefas da equipe, a ferramenta é ágil?
+
+	R: Para uma comunicação rápida entre o time o ideal seria Slack ou Microsoft Teams, mas como gestão de projetos temos
+	 o Jira que responde muito bem, ele suporta qualquer metodologia ágil.
+
+3. Você se sente capaz de liderar esta equipe? Por quê?
+
+	R: Sim, porque já tive oportunidade de estar na frente de um pequeno projeto de infraestrutura, e com isso adquiri 
+	um pouco de experiência e fui capaz de identificar e propor a solução.
+
+4. Se pudesse sugerir uma melhoria, mudança ou oportunidade. O que seria?
+
+	R: Iria sugerir foco nas funcionalidades, prazo e detalhes.
+
+5. Acha válido esse desafio para o processo que está participando?
+
+	R: Com certeza. O dia a dia de quem gere ou desenvolve software está 100% relacionado a tudo isso, um projeto não é 
+	simplesmente colocar a mão no código e entregar para o cliente, precisa ter ordem e planejamento, afinal estamos 
+	desenvolvendo uma solução para um problema, e tenho aprendido tudo isso com este projeto que fiz.
