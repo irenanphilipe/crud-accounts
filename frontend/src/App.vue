@@ -39,10 +39,16 @@
             <td>{{ conta.email }}</td>
             <td>{{ conta.username }}</td>
             <td>
-              <button @click="editar(conta)" class="waves-effect btn-small blue darken-1">
+              <button
+                @click="editar(conta)"
+                class="waves-effect btn-small blue darken-1"
+              >
                 <i class="material-icons">create</i>
               </button>
-              <button @click="remover(conta)" class="waves-effect btn-small red darken-1">
+              <button
+                @click="remover(conta)"
+                class="waves-effect btn-small red darken-1"
+              >
                 <i class="material-icons">delete_sweep</i>
               </button>
             </td>
@@ -68,12 +74,12 @@ export default {
         password: "",
       },
       contas: [],
-      erros: []
+      erros: [],
     };
   },
 
   mounted() {
-    this.listar()
+    this.listar();
   },
 
   methods: {
@@ -84,37 +90,43 @@ export default {
     },
 
     salvar() {
-      Contas.salvar(this.conta).then((response) => {
-        this.conta = {}
-        alert("Salvo com sucesso", this.conta.id);
-        this.listar()
-      }).catch (error => {
-        alert(error.response.data.error)
-      })
-      
-      //   Contas.atualizar(this.conta).then((response) => {
-      //   this.conta = {}
-      //   alert("Atualizado com sucesso");
-      //   this.listar()
-      // }).catch (error => {
-      //   alert(error.response.data.error)
-      // })
-      
-       
+      if (!this.conta.id) {
+        Contas.salvar(this.conta)
+          .then((response) => {
+            this.conta = {};
+            alert("Salvo com sucesso", this.conta.id);
+            this.listar();
+          })
+          .catch((error) => {
+            alert(error.response.data.error);
+          });
+      } else {
+          Contas.atualizar(this.conta).then((response) => {
+          this.conta = {}
+          alert("Atualizado com sucesso");
+          this.listar()
+        }).catch (error => {
+          alert(error.response.data.error)
+        })
+      }
     },
 
     editar(conta) {
-      this.conta = conta
+      this.conta = conta;
     },
 
     remover(conta) {
-      Contas.deletar(conta).then(response => {
-        this.listar();
-        this.erros = []
-      }).catch(error => {
-        alert(error.response.data.error)
-      })
-    }
+      if (confirm('Deseja realmente excluir ?')) {
+        Contas.deletar(conta)
+        .then((response) => {
+          this.listar();
+          this.erros = [];
+        })
+        .catch((error) => {
+          alert(error.response.data.error);
+        });
+      }
+    },
   },
 };
 </script>
